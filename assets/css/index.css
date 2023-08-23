@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: rgb(198, 158, 235);
+    background-color: rgb(0, 0, 0);
 }
 
 .indexTitle {
@@ -17,18 +17,22 @@ body {
 }
 
 .card-container {
+    width: 100vw;
+    height: auto;
+    padding-top: 50px;
     display: flex;
+    max-width: 1000px;
     justify-content: space-between;
-    max-width: 1200px; 
     margin: 0 auto;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .card {
     background-color: transparent;
     width: 300px;
     height: 200px;
-    border: 1px solid #f1f1f1;
+    border: 5px solid #e42dd4;
     perspective: 1000px; 
   }
 
