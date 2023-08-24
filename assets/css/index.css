@@ -5,6 +5,10 @@
 
 body {
     background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .indexTitle {
@@ -29,11 +33,12 @@ body {
 }
 
 .card {
-    background-color: transparent;
+    background: transparent;
     width: 300px;
     height: 200px;
-    border: 5px solid #e42dd4;
-    perspective: 1000px; 
+    border: 5px solid blueviolet;
+    perspective: 1000px;
+    align-items:center;
   }
 
   .card-inner {
@@ -43,6 +48,7 @@ body {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    background-color: transparent;
   }
 
   .card:hover .card-inner {
@@ -53,17 +59,33 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;
   }
 
   .card-front {
-    background-color: #bbb;
-    color: black;
+    color: rgb(138,43,226);
   }
 
   .card-back {
-    background-color: dodgerblue;
-    color: white;
     transform: rotateY(180deg);
+    background-color: rgb(138,43,226);
+    color:white;
   }
+
+  @media (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px); /* Cards take 50% width and have margin */
+    }
+    
+    .card-container {
+        justify-content: center; /* Center cards when stacked */
+    }
+}
