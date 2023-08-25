@@ -16,7 +16,6 @@ body {
 }
 
 .indexTitle img {
-    max-width: 100%;
     height: auto; 
 }
 
@@ -25,7 +24,6 @@ body {
     height: auto;
     padding-top: 50px;
     display: flex;
-    max-width: 1000px;
     justify-content: space-between;
     margin: 0 auto;
     flex-wrap: wrap;
@@ -34,11 +32,14 @@ body {
 
 .card {
     background: transparent;
-    width:320px;
-    height: 128px;
+    width: calc(33% - 2rem);
+    min-width: calc(33% - 2rem);
+    height: 200px;
+    min-height: 200px;
     perspective: 1000px;
     align-items:center;
     cursor: pointer;
+    margin: 1rem;
   }
 
   .card-inner {
