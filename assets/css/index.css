@@ -24,17 +24,14 @@ body {
     height: auto;
     padding-top: 50px;
     display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
 }
 
 .card {
     background: transparent;
-    width: calc(33% - 2rem);
-    min-width: calc(33% - 2rem);
-    height: 200px;
+    width:30%;
+    height: auto;
     min-height: 200px;
     perspective: 1000px;
     align-items:center;
@@ -66,38 +63,48 @@ body {
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    text-align: center;
     -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;
     border: 3px solid blueviolet;
-    box-shadow: 0px 0px 10px 2px rgba(138,43,226,0.75);
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(138,43,226,0.75);
-    -moz-box-shadow: 0px 0px 10px 2px rgba(138,43,226,0.75);
+    
     border-radius: 5px;
   }
 
   .card-front {
     color: rgb(138,43,226);
+    box-shadow: 0px 0px 10px 2px rgba(138,43,226,0.75);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(138,43,226,0.75);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(138,43,226,0.75);
   }
 
   .card-back {
     transform: rotateY(180deg);
     background-color: rgb(138,43,226);
     color:white;
+    -webkit-box-shadow:0px 0px 80px 20px rgba(138,43,226,0.9);
+    -moz-box-shadow: 0px 0px 80px 20px rgba(138,43,226,0.9);
+    box-shadow: 0px 0px 80px 20px rgba(138,43,226,0.9);
+
   }
   
   h3 {
     font-family: "Comic Sans MS", "Comic Sans", cursive !important;
     font-weight: 300;
+    font-size:1.5em;
+    margin: 15px 0 0;
+    color: rgb(56, 7, 102);
   }
 
-  @media screen and (max-width: 800px) {
-    .card {
-      width: calc(50% - 2rem);
+  
+
+  @media screen and (max-width: 960px){
+    .card{
+      width: 48%;
     }
   }
-  @media screen and (max-width: 500px) {
-    .card {
-      width: 100%;
+  
+  @media screen and (max-width: 460px){
+    .card{
+      width: 70%;
     }
   }
