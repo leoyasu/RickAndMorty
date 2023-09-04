@@ -16,12 +16,14 @@
               <a href="../index.html" style="cursor: pointer ; " class="brand-logo left hide-on-med-and-down"> 
                 <img style="height: 135px; width: 135;" src="../assets/img/logoNav.png" alt="logonNav">
               </a>
+
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
               
               <div class="container hide-on-med-and-down" style="display:flex; justify-content:center;">
                 <ul id="nav-mobile" style="list-style: none;">
-                  <li><a class="waves-effect waves-light btn href="#">CHARACTER</a></li>
-                  <li><a class="waves-effect waves-light btn href="locations.html">LOCATION</a></li>
-                  <li><a class="waves-effect waves-light btn href="episodes.html">EPISODE</a></li>
+                  <li><a class="waves-effect waves-light btn" href="#">CHARACTER</a></li>
+                  <li><a class="waves-effect waves-light btn" href="locations.html">LOCATION</a></li>
+                  <li><a class="waves-effect waves-light btn" href="episodes.html">EPISODE</a></li>
                 </ul>
               </div>
             
@@ -48,8 +50,21 @@
               </ul>
             </div>        
         </nav>
+
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="character.html">CHARACTERS</a></li>
+            <li><a href="location.html">LOCATIONS</a></li>
+            <li><a href="episode.html">EPISODES</a></li>
+          </ul>
     </header>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
 </body>
 </html>

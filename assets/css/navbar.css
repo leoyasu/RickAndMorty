@@ -32,3 +32,33 @@ nav.nav-extended {
     background-color: blueviolet!important;
 }
 
+.sidenav{
+    height: 190px !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    width: 180px !important;
+    box-sizing: content-box  !important;
+    display:block  !important;
+    justify-content: center  !important;
+    background-color: white;
+}
+
+.sidenav li a{
+    color: #FFFFFF !important;
+    line-height: 38px !important;
+}
+
+.sidenav li {
+    text-align: center  !important;
+    margin: 10px !important;
+    padding: 5px !important;
+    height: 50px !important;
+    width: 160px !important;
+    font-size: 30px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    border-radius: 5px !important;
+    background-color: blueviolet !important;
+    list-style: none !important;
+}
+
