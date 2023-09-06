@@ -62,3 +62,11 @@ nav.nav-extended {
     list-style: none !important;
 }
 
+@media only screen and (min-width: 992px) {
+    .sidenav {
+        display: none !important;
+    }
+    .sidenav-overlay {
+        opacity: 0 !important;
+    }
+}
