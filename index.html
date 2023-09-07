@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
     <title>Rick and Morty</title>
 </head>
+
 <body>
-    <main>
+    <header id="headerNavBar"></header>
+    <main id="root">
         <div class="index">
             <div class="indexTitle">
                 <img src="assets/img/logoHome.png" style="width: 85%;" alt="index logo">
@@ -15,7 +20,7 @@
 
             <div class="card-container">
                 <div class="card">
-                    <div class="card-inner">
+                    <div id="characters" class="card-inner">
                         <div class="card-front">
                             <h3>CHARACTERS</h3>
                         </div>
@@ -26,7 +31,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-inner">
+                    <div id="locations" class="card-inner">
                         <div class="card-front">
                             <h3>LOCATIONS</h3>
                         </div>
@@ -37,7 +42,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-inner">
+                    <div id="episodes" class="card-inner">
                         <div class="card-front">
                             <h3>EPISODES</h3>
                         </div>
@@ -49,5 +54,13 @@
             </div>
         </div>
     </main>
+
+    <script src="assets/js/home.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/location.js"></script>
+    <script src="assets/js/character.js"></script>
+    <script src="assets/js/episode.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
+
 </html>
