@@ -46,10 +46,10 @@ function showNavBar() {
         <li><a href="location.html">LOCATIONS</a></li>
         <li><a href="episode.html">EPISODES</a></li>
     </ul>
+
+    <script>document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+    });</script>
     `
 }
-
-/*document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
-});*/

@@ -1,11 +1,7 @@
-* {
-    margin: 0!important;
-    padding: 0!important;
-}
 
-body {
+
+.index {
     background-color: rgb(15, 15, 15)!important;
-    display: flex!important;
     align-items: center!important;
     justify-content: center!important;
     min-height: 100vh!important;

@@ -10,18 +10,16 @@ cards.forEach(card => {
 function pageToDisplay(pageFromClick) {
     let pageNavBar = document.getElementById("headerNavBar");
     let page = document.getElementById("root");
-
+    pageNavBar.innerHTML = showNavBar();
     switch (pageFromClick) {
         case "characters":
-            pageNavBar.innerHTML = showNavBar();
+            
             page.innerHTML = displayCharacter();
             break;
         case "locations":
-            pageNavBar.innerHTML = showNavBar();
             page.innerHTML = displayLocation();
             break;
         case "episodes":
-            pageNavBar.innerHTML = showNavBar();
             page.innerHTML = displayEpisode();
             break;
         default:
