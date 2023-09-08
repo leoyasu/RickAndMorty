@@ -12,15 +12,15 @@ function pageToDisplay(pageFromClick) {
     let page = document.getElementById("root");
 
     switch (pageFromClick) {
-        case "character":
+        case "characters":
             pageNavBar.innerHTML = showNavBar();
             page.innerHTML = displayCharacter();
             break;
-        case "location":
+        case "locations":
             pageNavBar.innerHTML = showNavBar();
             page.innerHTML = displayLocation();
             break;
-        case "episode":
+        case "episodes":
             pageNavBar.innerHTML = showNavBar();
             page.innerHTML = displayEpisode();
             break;

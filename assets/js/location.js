@@ -1,4 +1,4 @@
-function displayHome() {
+function displayLocation() {
     return `
         
       <div class= "cards_container">
