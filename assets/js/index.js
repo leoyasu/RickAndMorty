@@ -11,9 +11,9 @@ function pageToDisplay(pageFromClick) {
     let pageNavBar = document.getElementById("headerNavBar");
     let page = document.getElementById("root");
     pageNavBar.innerHTML = showNavBar();
+
     switch (pageFromClick) {
         case "characters":
-            
             page.innerHTML = displayCharacter();
             break;
         case "locations":
