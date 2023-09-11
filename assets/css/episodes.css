@@ -1,45 +1,26 @@
-* {
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  background-color: rgba(196, 71, 196, 0.818);
-  
-}
-main {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px !important;
-}
 #cards_main {
-  
-  width: 100%;
-  /* display: flex;
-  flex-direction: row;
-  align-content: stretch;
-  justify-content: space-between;
-  flex-wrap: wrap; */
-  /* Grid */
-  display: grid;
-  gap: 4rem;
-  grid-auto-rows: 20rem;
-  grid-auto-flow: dense;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  background-color: rgba(196, 71, 196, 0.818)!important;
+  margin-top: 1px!important;
+  width: 100%!important;
+  display: grid!important;
+  padding-bottom: 4rem!important;
+  grid-auto-flow: dense!important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr))!important;
 }
 
 .subcards {
-  height: 350px;
-  border: 1px solid whitesmoke;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 1rem;
+  text-align: center!important;
+  border: 1px solid whitesmoke!important;
+  border-radius: 10px!important;
+  display: flex!important;
+  overflow: hidden!important;
+  height: 350px !important;
+  flex-direction: column!important;
+  align-items: center!important;
+  margin: 1rem 1rem!important;
+  box-shadow: 13px 10px 29px -7px rgba(0, 0, 0, 0.71)!important;
+  -webkit-box-shadow: 13px 10px 29px -7px rgba(0, 0, 0, 0.71)!important;
+  -moz-box-shadow: 13px 10px 29px -7px rgba(0, 0, 0, 0.71)!important;
 }
 
 .backgroundImg {
@@ -48,47 +29,39 @@ main {
       rgba(237, 227, 227, 0.401)
     ),
     url(../img/rick-morty-.webp);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: auto 300px;
-    height: 100%;
-    width: 100%;
+    background-position: center center!important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    height: 100%!important;
+    font-size: 1.5rem !important;
+    width: 100%!important;
 }
 
-.subcards > a > button {
-  background-color: rgb(236, 29, 163);
-  color: white;
-  min-width: 600px;
-  font-size: 20px;
-  padding: 8px;
-  margin-left: 5px;
-  margin-right: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  text-decoration: none;
+.backgroundImg > h2 {
+  margin: 50px;
 }
 
-.subcards > a {
-  text-decoration: none;
+
+.divbutton a > button {
+  background-color: rgb(236, 29, 163)!important;
+  color: white!important;
+  width: 100%!important;
+  padding: 1rem!important;
+  display: flex!important;
+  justify-content: center!important;
+  align-items: flex-end!important;
+  text-decoration: none!important;
+  border-width: 0px!important;
 }
 
-.subcards > button {
-  background-color: yellow;
-  color: black;
-  font-size: 20px;
-  padding: 8px;
-  margin-left: 5px;
-  
-  margin-right: 5px;
+.divbutton {
+  text-decoration: none!important;
+  width: 100%!important;
 }
 
-.subcards > a > button:hover {
-  cursor: pointer;
-  background-color: rgb(122, 157, 239);
-  color: black;
-  box-shadow: 13px 10px 29px -7px rgba(0, 0, 0, 0.71);
-  -webkit-box-shadow: 13px 10px 29px -7px rgba(0, 0, 0, 0.71);
-  -moz-box-shadow: 13px 10px 29px -7px rgba(0, 0, 0, 0.71);
-  
+.divbutton a > button:hover {
+  cursor: pointer!important;
+  background-color: rgb(122, 157, 239)!important;
+  color: black!important;
 }
+
