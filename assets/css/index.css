@@ -15,7 +15,7 @@
     height: auto!important; 
 }
 
-.card-container {
+.card-container1 {
     width: 100vw!important;
     height: auto!important;
     padding-top: 50px!important;
@@ -24,7 +24,7 @@
     justify-content: center!important;
 }
 
-.card {
+.card1 {
     background: transparent!important;
     width:30%!important;
     height: auto!important;
@@ -45,7 +45,7 @@
     background-color: transparent !important;
   }
 
-  .card:hover .card-inner {
+  .card1:hover .card-inner {
     transform: rotateY(180deg) !important;
   }
 
@@ -92,13 +92,13 @@
   }
 
   @media screen and (max-width: 960px){
-    .card{
+    .card1{
       width: 48% !important;
     }
   }
   
   @media screen and (max-width: 460px){
-    .card{
+    .card1{
       width: 70% !important;
     }
   }

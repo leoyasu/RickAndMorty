@@ -1,5 +1,4 @@
 
-
 .cards_containers {
     background-color: #c69eeb;
     height: 100vw;
@@ -14,7 +13,7 @@
     flex-wrap: wrap;
     padding-bottom: 20px;
     background-color: #c69eeb;
-    
+
 }
 
 .card-all {
@@ -24,40 +23,46 @@
     justify-content: center;
 }
 
-.cards img {
-    width: auto;
-    height: 400px;
+
+.card .card-img-top{
+    background-repeat: no-repeat;
+}
+.card-img-top {
+    background-size: contain;
+    height: 430px;
+    width: 460px !important;
+    background-size: auto;
     opacity: 50%;
+    padding: 0px;
+    margin: 20px !important;
 }
 
-.cards {
-    position: relative;
-    margin: 6px !important;
-    width: 594px;
-    height: 400px;
-    border: 1px solid white;
-    border-radius: 5px;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    flex-direction: column;
-}
-
-
-.sub_data {
-    display: flex;
-    flex-direction: column;
+.card-body p {
     justify-content: center;
     align-items: center;
-    color: black;
-    font-size: 20px ; 
-    
-} 
-  
-.cards img:hover{
-    cursor:pointer;
-    box-shadow: 20px 10px 29px -7px rgba(0, 0, 0, 0.71);
-    -webkit-box-shadow: 13px 10px 29px -7px rgba(0, 0, 0, 0.71);
-    -moz-box-shadow: 13px 10px 29px -7px rgba(0, 0, 0, 0.71);
+    display: flex;
+    font-size: 30px;
+}
+.card-body h4 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    color: red;
+    margin-top: 10px
+}
+.card-body h5 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    color: purple;
+    margin-top: 10px
+
+}
+
+
+.card {
+    margin: 12px !important;
+
 }
