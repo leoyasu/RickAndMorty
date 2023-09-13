@@ -2,7 +2,7 @@ function showNavBar() {
     return `
         <nav class="nav-extended deep-purple lighten-1">
         <div class="nav-wrapper">
-        <a href="../index.html" style="cursor: pointer ; " class="brand-logo left hide-on-med-and-down"> 
+        <a id="logoHomeBtn" style="cursor: pointer ; " class="brand-logo left hide-on-med-and-down"> 
             <img style="height: 135px; width: 135;" src="../assets/img/logoNav.png" alt="logonNav">
         </a>
 
@@ -10,9 +10,9 @@ function showNavBar() {
         
         <div class="container hide-on-med-and-down" style="display:flex; justify-content:center;">
             <ul id="nav-mobile" style="list-style: none;">
-            <li><a class="waves-effect waves-light btn" href="#">CHARACTER</a></li>
-            <li><a class="waves-effect waves-light btn" href="locations.html">LOCATION</a></li>
-            <li><a class="waves-effect waves-light btn" href="episodes.html">EPISODE</a></li>
+            <li><a id="charNavBtn" class="waves-effect waves-light btn">CHARACTER</a></li>
+            <li><a id="locNavBtn" class="waves-effect waves-light btn">LOCATION</a></li>
+            <li><a id="epiNavBtn" class="waves-effect waves-light btn">EPISODE</a></li>
             </ul>
         </div>
         
@@ -53,3 +53,30 @@ function showNavBar() {
     });</script>
     `
 }
+
+function addNavListeners() {
+    const buttonsIds = ['charNavBtn', 'locNavBtn', 'epiNavBtn', 'logoHomeBtn'];
+
+    buttonsIds.forEach(id => {
+        const button = document.getElementById(id);
+        button.addEventListener('click', (e) => {
+            pageToDisplay(e.currentTarget.id);
+        });
+    });
+}
+
+
+
+// const searchInput = document.getElementById("searchNavbar");
+
+// searchInput.addEventListener("keyup", () => {
+//     const searchValue = searchInput.value;
+//     fetchSearchData(searchValue);
+// }
+// );
+
+// async function fetchSearchData() {
+//     const characterEndPoint = `https://rickandmortyapi.com/api/character/?name=${term}`;
+//     const characterEndPoint = `https://rickandmortyapi.com/api/character/?name=${term}`;
+//     const characterEndPoint = `https://rickandmortyapi.com/api/character/?name=${term}`;
+// }
