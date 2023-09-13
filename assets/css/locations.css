@@ -2,6 +2,7 @@
 .cards_containers {
     background-color: #c69eeb;
     height: 100vw;
+    margin-top: 1px!important;
 }
 
 .cards_container{
