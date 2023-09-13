@@ -1,74 +1,74 @@
 function displayLocation() {
   return `
-  <div class="cards_container">
+      <div class="cards_container">
 
-  <div class="card-all">
+      <div class="card-all">
 
-    <div class="card">
-      <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p>Texto prueba</p>
-        <h4> Aca va otro texto prueba</h4>
-        <h5>ULTIMA PRUEBA</h5>
+        <div class="card">
+          <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p>Texto prueba</p>
+            <h4> Aca va otro texto prueba</h4>
+            <h5>ULTIMA PRUEBA</h5>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p>Texto prueba</p>
+            <h4> Aca va otro texto prueba</h4>
+            <h5>ULTIMA PRUEBA</h5>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p>Texto prueba</p>
+            <h4> Aca va otro texto prueba</h4>
+            <h5>ULTIMA PRUEBA</h5>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p>Texto prueba</p>
+            <h4> Aca va otro texto prueba</h4>
+            <h5>ULTIMA PRUEBA</h5>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p>Texto prueba</p>
+            <h4> Aca va otro texto prueba</h4>
+            <h5>ULTIMA PRUEBA</h5>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p>Texto prueba</p>
+            <h4> Aca va otro texto prueba</h4>
+            <h5>ULTIMA PRUEBA</h5>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p>Texto prueba</p>
+            <h4> Aca va otro texto prueba</h4>
+            <h5>ULTIMA PRUEBA</h5>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <div class="card">
-      <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p>Texto prueba</p>
-        <h4> Aca va otro texto prueba</h4>
-        <h5>ULTIMA PRUEBA</h5>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p>Texto prueba</p>
-        <h4> Aca va otro texto prueba</h4>
-        <h5>ULTIMA PRUEBA</h5>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p>Texto prueba</p>
-        <h4> Aca va otro texto prueba</h4>
-        <h5>ULTIMA PRUEBA</h5>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p>Texto prueba</p>
-        <h4> Aca va otro texto prueba</h4>
-        <h5>ULTIMA PRUEBA</h5>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p>Texto prueba</p>
-        <h4> Aca va otro texto prueba</h4>
-        <h5>ULTIMA PRUEBA</h5>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p>Texto prueba</p>
-        <h4> Aca va otro texto prueba</h4>
-        <h5>ULTIMA PRUEBA</h5>
-      </div>
-    </div>
-
-  </div>
-</div>
     `;
 }
 

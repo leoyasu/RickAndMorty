@@ -80,7 +80,7 @@ function pageToDisplay(pageFromClick) {
         case "epiNavBtn":
             pageNavBar.innerHTML = showNavBar();
             addNavListeners();
-            sessionStorage.setItem('paginaActual', 'epidose');
+            sessionStorage.setItem('paginaActual', 'episode');
             page.innerHTML = displayEpisode();
             break;
         default:

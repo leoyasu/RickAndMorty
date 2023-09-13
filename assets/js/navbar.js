@@ -19,7 +19,7 @@ function showNavBar() {
         <div class="container">
             <form  style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);">
             <div class="input-field right">
-                <input id="search" type="search" placeholder="Buscar..." required>
+                <input id="searchNavbar" type="search" placeholder="Buscar..." required>
                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                 <i class="material-icons">close</i>
             </div>
@@ -46,11 +46,6 @@ function showNavBar() {
         <li><a href="location.html">LOCATIONS</a></li>
         <li><a href="episode.html">EPISODES</a></li>
     </ul>
-
-    <script>document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems);
-    });</script>
     `
 }
 
@@ -63,20 +58,27 @@ function addNavListeners() {
             pageToDisplay(e.currentTarget.id);
         });
     });
+
+    setNavSearch();
 }
 
+function setNavSearch() {
+    const searchInput = document.getElementById("searchNavbar");
 
+    searchInput.addEventListener("keyup", () => {
+        const searchValue = searchInput.value;
+        fetchSearchData(searchValue);
+        }
+    );
+}
 
-// const searchInput = document.getElementById("searchNavbar");
-
-// searchInput.addEventListener("keyup", () => {
-//     const searchValue = searchInput.value;
-//     fetchSearchData(searchValue);
-// }
-// );
-
-// async function fetchSearchData() {
-//     const characterEndPoint = `https://rickandmortyapi.com/api/character/?name=${term}`;
-//     const characterEndPoint = `https://rickandmortyapi.com/api/character/?name=${term}`;
-//     const characterEndPoint = `https://rickandmortyapi.com/api/character/?name=${term}`;
-// }
+async function fetchSearchData(searchValue) {
+    let page = sessionStorage.getItem('paginaActual');
+    const urlEndPoint = `https://rickandmortyapi.com/api/${page}/?name=${searchValue}`;
+    console.log(urlEndPoint)
+    await fetch(urlEndPoint)
+        .then(response => response.json())
+        .then(json =>
+            console.log(json)
+        );
+}
