@@ -44,6 +44,7 @@ function displayHome() {
 }
 
 addIndexListeners()
+getData()
 function addIndexListeners() {
     const cards = document.querySelectorAll('.card-inner');
 
@@ -92,4 +93,18 @@ function pageToDisplay(pageFromClick) {
     }
 }
 
+async function getData() {
+    await fetch("https://rickandmortyapi.com/api/character")
+        .then(response => response.json())
+        .then(json=>sessionStorage.setItem('character', JSON.stringify(json)));
 
+
+    await fetch("https://rickandmortyapi.com/api/location")
+        .then(response => response.json())
+        .then(json=>sessionStorage.setItem('location', JSON.stringify(json)));
+
+
+    await fetch("https://rickandmortyapi.com/api/episode")
+        .then(response => response.json())
+        .then(json=>sessionStorage.setItem('episode', JSON.stringify(json)));
+}

@@ -67,18 +67,31 @@ function setNavSearch() {
 
     searchInput.addEventListener("keyup", () => {
         const searchValue = searchInput.value;
-        fetchSearchData(searchValue);
-        }
+        //searchCachedData(searchValue);
+        //fetchSearchData(searchValue);
+    }
     );
 }
 
 async function fetchSearchData(searchValue) {
     let page = sessionStorage.getItem('paginaActual');
     const urlEndPoint = `https://rickandmortyapi.com/api/${page}/?name=${searchValue}`;
-    console.log(urlEndPoint)
     await fetch(urlEndPoint)
         .then(response => response.json())
         .then(json =>
             console.log(json)
         );
+}
+
+function searchCachedData(searchValue) {
+    let page = sessionStorage.getItem('paginaActual');
+    const cachedData = JSON.parse(sessionStorage.getItem(page));
+    getDataFromCached(cachedData.results, searchValue);
+}
+
+function getDataFromCached(cachedData, searchValue) {
+    const resultados = cachedData.filter(item => {
+        return item.name.toLowerCase().includes(searchValue.toLowerCase())
+    });
+    return resultados;
 }
