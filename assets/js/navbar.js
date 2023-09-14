@@ -65,28 +65,81 @@ function addNavListeners() {
 async function setNavSearch() {
     const searchInput = document.getElementById("searchNavbar");
 
-    searchInput.addEventListener("keyup", () => {
+    searchInput.addEventListener("keyup", async() => {
         const searchValue = searchInput.value;
         //searchCachedData(searchValue);
-        fetchSearchData(searchValue).then(function(result){
-            result.results.forEach(item => console.log(item))
-        });
+        // fetchSearchData(searchValue).then(function(result){
+        //     result.results.forEach(item => console.log(item))
+        // });
+        let fetchedData = await fetchSearchData(searchValue);
+        // fetchSearchData(searchValue).then(function (result) {
+        //     if (result !== null && result !== undefined) {
+        //         displaySearchedData(result.results);
+        //     }
+        // });
+        if(fetchedData) {
+            displaySearchedData(fetchedData.results);
+        }
+    }
+    );
+}
+
+async function displaySearchedData(searchedData) {
+    if (searchedData !== undefined) {
+        
+    }
+    const cardAllContainer = document.querySelector('.card-all');
+    cardAllContainer.innerHTML = "";
+
+    searchedData.forEach(input => {
+        const cardAllContainer = document.querySelector('.card-all');
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+
+        cardElement.innerHTML = `
+        <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p id="nombre">${input.name}</p>
+          <p id="dimension">${input.dimension}</p>
+          <p id="planeta">${input.type}</p>
+          <p id="residentes">Residentes: ${input.residents.length}</p>
+          <p id="fechaCreacion">Creación: ${input.created}</p>
+        </div>
+      `;
+
+        cardAllContainer.appendChild(cardElement);
     }
     );
 }
 
 async function fetchSearchData(searchValue) {
     let page = sessionStorage.getItem('paginaActual');
-    let searchedData = [];
     const urlEndPoint = `https://rickandmortyapi.com/api/${page}/?name=${searchValue}`;
-    await fetch(urlEndPoint)
-        .then(response => response.json())
-        .then(json =>
-            searchedData = json
-        );
+    // await fetch(urlEndPoint)
+    //     .then(response => response.json())
+    //     .then(json =>
+    //         searchedData = json
+    //     );
+    // return searchedData;
 
-    return searchedData;
+    try {
+        const response = await fetch(urlEndPoint);
+
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.error === 'There is nothing here') {
+            return null; 
+        }
+        return data;
+    } catch (error) {
+        return null;
+    }
 }
+
 
 // function searchCachedData(searchValue) {
 //     let page = sessionStorage.getItem('paginaActual');
