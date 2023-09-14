@@ -62,36 +62,41 @@ function addNavListeners() {
     setNavSearch();
 }
 
-function setNavSearch() {
+async function setNavSearch() {
     const searchInput = document.getElementById("searchNavbar");
 
     searchInput.addEventListener("keyup", () => {
         const searchValue = searchInput.value;
         //searchCachedData(searchValue);
-        //fetchSearchData(searchValue);
+        fetchSearchData(searchValue).then(function(result){
+            result.results.forEach(item => console.log(item))
+        });
     }
     );
 }
 
 async function fetchSearchData(searchValue) {
     let page = sessionStorage.getItem('paginaActual');
+    let searchedData = [];
     const urlEndPoint = `https://rickandmortyapi.com/api/${page}/?name=${searchValue}`;
     await fetch(urlEndPoint)
         .then(response => response.json())
         .then(json =>
-            console.log(json)
+            searchedData = json
         );
+
+    return searchedData;
 }
 
-function searchCachedData(searchValue) {
-    let page = sessionStorage.getItem('paginaActual');
-    const cachedData = JSON.parse(sessionStorage.getItem(page));
-    getDataFromCached(cachedData.results, searchValue);
-}
+// function searchCachedData(searchValue) {
+//     let page = sessionStorage.getItem('paginaActual');
+//     const cachedData = JSON.parse(sessionStorage.getItem(page));
+//     getDataFromCached(cachedData.results, searchValue);
+// }
 
-function getDataFromCached(cachedData, searchValue) {
-    const resultados = cachedData.filter(item => {
-        return item.name.toLowerCase().includes(searchValue.toLowerCase())
-    });
-    return resultados;
-}
+// function getDataFromCached(cachedData, searchValue) {
+//     const resultados = cachedData.filter(item => {
+//         return item.name.toLowerCase().includes(searchValue.toLowerCase())
+//     });
+//     return resultados;
+// }
