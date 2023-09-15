@@ -102,7 +102,7 @@ async function displaySearchedData(searchedData) {
           <p id="nombre">${input.name}</p>
           <p id="dimension">${input.dimension}</p>
           <p id="planeta">${input.type}</p>
-          <p id="residentes">Residentes: ${input.residents.length}</p>
+          <p id="residentes">Residents: ${input.residents.length}</p>
           <p id="fechaCreacion">Creación: ${input.created}</p>
         </div>
       `;
@@ -115,29 +115,12 @@ async function displaySearchedData(searchedData) {
 async function fetchSearchData(searchValue) {
     let page = sessionStorage.getItem('paginaActual');
     const urlEndPoint = `https://rickandmortyapi.com/api/${page}/?name=${searchValue}`;
-    // await fetch(urlEndPoint)
-    //     .then(response => response.json())
-    //     .then(json =>
-    //         searchedData = json
-    //     );
-    // return searchedData;
-
-    try {
-        const response = await fetch(urlEndPoint);
-
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        if (data.error === 'There is nothing here') {
-            return null; 
-        }
-        return data;
-    } catch (error) {
-        return null;
-    }
+    await fetch(urlEndPoint)
+         .then(response => response.json())
+         .then(json =>
+             searchedData = json
+         );
+     return searchedData;
 }
 
 

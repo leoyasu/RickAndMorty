@@ -58,7 +58,7 @@ function addIndexListeners() {
 }
 
 
-function pageToDisplay(pageFromClick) {
+async function pageToDisplay(pageFromClick) {
     let pageNavBar = document.getElementById("headerNavBar");
     let page = document.getElementById("root");
 
@@ -75,7 +75,7 @@ function pageToDisplay(pageFromClick) {
             pageNavBar.innerHTML = showNavBar();
             addNavListeners();
             sessionStorage.setItem('paginaActual', 'location');
-            page.innerHTML = displayLocation();
+            await getAllLocationData();
             break;
         case "episodes":
         case "epiNavBtn":
