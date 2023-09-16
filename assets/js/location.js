@@ -11,7 +11,8 @@ function displayLocation() {
 
 async function getAllLocationData() {
 
-fetch("https:rickandmortyapi.com/api/location").then(response => response.json()).then(json => displayAllLocations(json.results))
+fetch("https:rickandmortyapi.com/api/location").then(response => response.json())
+.then(json => displayAllLocations(json.results))
 
 }
 

@@ -61,14 +61,14 @@ function addIndexListeners() {
 async function pageToDisplay(pageFromClick) {
     let pageNavBar = document.getElementById("headerNavBar");
     let page = document.getElementById("root");
-
     switch (pageFromClick) {
         case "characters":
         case "charNavBtn":
             pageNavBar.innerHTML = showNavBar();
             addNavListeners();
             sessionStorage.setItem('paginaActual', 'character');
-            page.innerHTML = displayCharacter();
+            const contenido = await mostrarPagina("https://rickandmortyapi.com/api/character");
+            page.innerHTML = contenido.outerHTML;
             break;
         case "locations":
         case "locNavBtn":
