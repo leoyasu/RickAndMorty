@@ -82,7 +82,7 @@ async function pageToDisplay(pageFromClick) {
             pageNavBar.innerHTML = showNavBar();
             addNavListeners();
             sessionStorage.setItem('paginaActual', 'episode');
-            page.innerHTML = displayEpisode();
+            await getAllEpisodeData();
             break;
         default:
             sessionStorage.setItem('paginaActual', 'home');

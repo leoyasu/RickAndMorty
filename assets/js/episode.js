@@ -1,97 +1,40 @@
-function displayEpisode (){
-    return `
+function displayEpisode() {
+  return `
 
-    <section id="cards_main">
-          <div class="subcards">
-            <div class="backgroundImg">
-              <h2>episode</h2>
-            <p>december 2,2013</p>
-            <h1>S10E01</h1>
-            </div>
-            <div class="divbutton">
-              <a href="./info.html"><button>+info</button></a>
-            </div>
-          </div>
-          
-          <div class="subcards">
-            <div class="backgroundImg">
-              <h2>episode</h2>
-            <p>december 2,2013</p>
-            <h1>S10E01</h1>
-            </div>
-            <div class="divbutton">
-              <a href="./info.html"><button>+info</button></a>
-            </div>
-          </div>
-
-          <div class="subcards">
-            <div class="backgroundImg">
-              <h2>episode</h2>
-            <p>december 2,2013</p>
-            <h1>S10E01</h1>
-            </div>
-            <div class="divbutton">
-              <a href="./info.html"><button>+info</button></a>
-            </div>
-          </div>
-
-          <div class="subcards">
-            <div class="backgroundImg">
-              <h2>episode</h2>
-            <p>december 2,2013</p>
-            <h1>S10E01</h1>
-            </div>
-            <div class="divbutton">
-              <a href="./info.html"><button>+info</button></a>
-            </div>
-          </div>
-
-          <div class="subcards">
-            <div class="backgroundImg">
-              <h2>episode</h2>
-            <p>december 2,2013</p>
-            <h1>S10E01</h1>
-            </div>
-            <div class="divbutton">
-              <a href="./info.html"><button>+info</button></a>
-            </div>
-          </div>
-
-
-          <div class="subcards">
-            <div class="backgroundImg">
-              <h2>episode</h2>
-            <p>december 2,2013</p>
-            <h1>S10E01</h1>
-            </div>
-            <div class="divbutton">
-              <a href="./info.html"><button>+info</button></a>
-            </div>
-          </div>
-
-          <div class="subcards">
-            <div class="backgroundImg">
-              <h2>episode</h2>
-            <p>december 2,2013</p>
-            <h1>S10E01</h1>
-            </div>
-            <div class="divbutton">
-              <a href="./info.html"><button>+info</button></a>
-            </div>
-          </div>
-
-          <div class="subcards">
-            <div class="backgroundImg">
-              <h2>episode</h2>
-            <p>december 2,2013</p>
-            <h1>S10E01</h1>
-            </div>
-            <div class="divbutton">
-              <a href="./info.html"><button>+info</button></a>
-            </div>
-          </div>
-
+    <section class="cards_main">
           
           </section>
       `
+}
+
+async function getAllEpisodeData() {
+  fetch("https:rickandmortyapi.com/api/episode").then(response => response.json())
+    .then(json => displayAllEpisodes(json.results));
+}
+
+async function displayAllEpisodes(episodesData) {
+  let page = document.getElementById("root");
+  page.innerHTML = displayEpisode();
+
+  const cardContainer = document.querySelector('.cards_main');
+  cardContainer.innerHTML = "";
+
+  episodesData.forEach(episode => {
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('subcards');
+
+    cardElement.innerHTML = `
+        <div class="backgroundImg">
+          <h2>${episode.name}</h2>
+          <p>${episode.air_date}</p>
+          <h1>${episode.episode}</h1>
+        </div>
+        <div class="divbutton">
+          <a href="./info.html"><button>+info</button></a>
+          </div>
+        </div>
+    `;
+
+    cardContainer.appendChild(cardElement);
+  });
 }
