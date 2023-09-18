@@ -106,28 +106,7 @@ async function displaySearchedData(searchedData) {
 
     switch (paginaActual) {
         case "location":
-            const cardAllContainer = document.querySelector('.card-all');
-            cardAllContainer.innerHTML = "";
-
-            searchedData.forEach(input => {
-                const cardAllContainer = document.querySelector('.card-all');
-                const cardElement = document.createElement('div');
-                cardElement.classList.add('card');
-
-                cardElement.innerHTML = `
-                <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p id="nombre">${input.name}</p>
-                  <p id="dimension">${input.dimension}</p>
-                  <p id="planeta">${input.type}</p>
-                  <p id="residentes">Residents: ${input.residents.length}</p>
-                  <p id="fechaCreacion">Creación: ${input.created}</p>
-                </div>
-              `;
-
-                cardAllContainer.appendChild(cardElement);
-            }
-            );
+            displayAllLocations(searchedData);
             break;
         case "character":
             const containerCards = document.querySelector('.containerCards');
