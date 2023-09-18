@@ -29,13 +29,10 @@ function showNavBar() {
 
         <div id="pagination" style="display:flex; justify-content:center;" class="nav-content">
         <ul class="pagination">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active deep-purple lighten-1"><a href="#!">1</a></li>
-            <li class="waves-effect"><a href="#!">2</a></li>
-            <li class="waves-effect"><a href="#!">3</a></li>
-            <li class="waves-effect"><a href="#!">4</a></li>
-            <li class="waves-effect"><a href="#!">5</a></li>
-            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            <li class="disabled" id="prevPage"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                
+
+            <li class="waves-effect" id="nextPage"><a href="#!"><i class="material-icons">chevron_right</i></a></li> 
         </ul>
         </div>        
     </nav>
@@ -48,6 +45,8 @@ function showNavBar() {
     </ul>
     `
 }
+// let currentPage = 1;
+// let totalPages = 0;
 
 function addNavListeners() {
     const buttonsIds = ['charNavBtn', 'locNavBtn', 'epiNavBtn', 'logoHomeBtn'];
@@ -58,6 +57,24 @@ function addNavListeners() {
             pageToDisplay(e.currentTarget.id);
         });
     });
+    // setPaginationItems() 
+    // document.getElementById("nextPage").addEventListener("click", () => {
+    //     if (currentPage < totalPages) {
+    //         currentPage++;
+    //         const apiUrl = `https://rickandmortyapi.com/api/character`;
+    //         charPagination(apiUrl,currentPage);
+    //     }
+
+    // });
+
+
+    // document.getElementById("prevPage").addEventListener("click", () => {
+    //     if (currentPage > 1) {
+    //         currentPage--;
+    //         const apiUrl = `https://rickandmortyapi.com/api/character`;
+    //         charPagination(apiUrl,currentPage);
+    //     }
+    // });
 
     setNavSearch();
 }
@@ -65,7 +82,7 @@ function addNavListeners() {
 async function setNavSearch() {
     const searchInput = document.getElementById("searchNavbar");
 
-    searchInput.addEventListener("keyup", async() => {
+    searchInput.addEventListener("keyup", async () => {
         const searchValue = searchInput.value;
         //searchCachedData(searchValue);
         // fetchSearchData(searchValue).then(function(result){
@@ -77,7 +94,7 @@ async function setNavSearch() {
         //         displaySearchedData(result.results);
         //     }
         // });
-        if(fetchedData) {
+        if (fetchedData) {
             displaySearchedData(fetchedData.results);
         }
     }
@@ -85,44 +102,105 @@ async function setNavSearch() {
 }
 
 async function displaySearchedData(searchedData) {
-    if (searchedData !== undefined) {
-        
+    var paginaActual = sessionStorage.getItem('paginaActual')
+
+    switch (paginaActual) {
+        case "location":
+            const cardAllContainer = document.querySelector('.card-all');
+            cardAllContainer.innerHTML = "";
+
+            searchedData.forEach(input => {
+                const cardAllContainer = document.querySelector('.card-all');
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('card');
+
+                cardElement.innerHTML = `
+                <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p id="nombre">${input.name}</p>
+                  <p id="dimension">${input.dimension}</p>
+                  <p id="planeta">${input.type}</p>
+                  <p id="residentes">Residents: ${input.residents.length}</p>
+                  <p id="fechaCreacion">Creación: ${input.created}</p>
+                </div>
+              `;
+
+                cardAllContainer.appendChild(cardElement);
+            }
+            );
+            break;
+        case "character":
+            const containerCards = document.querySelector('.containerCards');
+            containerCards.innerHTML = "";
+            searchedData.forEach(async (input) => {
+                
+                let nameEpisode = await fetch(input.episode[0]).then(response => response.json()).then(episode => episode.name);
+                let cardItem = document.createElement("div")
+                cardItem.className = "cardCharacter"
+
+                cardItem.appendChild(generarElemImagen(input.image))
+                cardItem.appendChild(generarElemInfo(input.name,
+                    input.status,
+                    input.location.name,
+                    nameEpisode))
+                cardItem.appendChild(generarBoton())
+                containerCards.appendChild(cardItem)
+            });
+            break;
+        default:
+            break;
     }
-    const cardAllContainer = document.querySelector('.card-all');
-    cardAllContainer.innerHTML = "";
-
-    searchedData.forEach(input => {
-        const cardAllContainer = document.querySelector('.card-all');
-        const cardElement = document.createElement('div');
-        cardElement.classList.add('card');
-
-        cardElement.innerHTML = `
-        <img src="../assets/img/tarjeta.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <p id="nombre">${input.name}</p>
-          <p id="dimension">${input.dimension}</p>
-          <p id="planeta">${input.type}</p>
-          <p id="residentes">Residents: ${input.residents.length}</p>
-          <p id="fechaCreacion">Creación: ${input.created}</p>
-        </div>
-      `;
-
-        cardAllContainer.appendChild(cardElement);
-    }
-    );
 }
+
 
 async function fetchSearchData(searchValue) {
     let page = sessionStorage.getItem('paginaActual');
     const urlEndPoint = `https://rickandmortyapi.com/api/${page}/?name=${searchValue}`;
     await fetch(urlEndPoint)
-         .then(response => response.json())
-         .then(json =>
-             searchedData = json
-         );
-     return searchedData;
+        .then(response => response.json())
+        .then(json =>
+            searchedData = json
+        );
+    return searchedData;
 }
 
+
+async function charPagination(charPagURL) {
+    document.getElementById("containerCards").innerHTML = "";
+
+    await mostrarPagina(charPagURL, currentPage);
+
+    document.getElementById("prevPage").classList.toggle("disabled", currentPage === 1);
+    document.getElementById("nextPage").classList.toggle("disabled", currentPage === totalPages);
+
+}
+
+function setPaginationItems() {
+
+    const paginationContainer = document.querySelector(".pagination");
+    const numberPageElements = document.querySelectorAll(".pagination li:not(#prevPage):not(#nextPage)");
+    numberPageElements.forEach((element) => {
+        paginationContainer.removeChild(element);
+    });
+
+    for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement("li");
+        li.classList.add("waves-effect");
+
+        const a = document.createElement("a");
+        a.href = "#!";
+        a.textContent = i;
+
+        a.addEventListener("click", () => {
+            currentPage = i;
+            const apiUrl = `https://rickandmortyapi.com/api/character`;
+            charPagination(charPagURL, currentPage);
+        });
+
+        li.appendChild(a);
+        paginationContainer.appendChild(li);
+    }
+}
 
 // function searchCachedData(searchValue) {
 //     let page = sessionStorage.getItem('paginaActual');

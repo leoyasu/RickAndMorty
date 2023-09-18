@@ -67,6 +67,7 @@ async function pageToDisplay(pageFromClick) {
             pageNavBar.innerHTML = showNavBar();
             addNavListeners();
             sessionStorage.setItem('paginaActual', 'character');
+            page.innerHTML ="";
             const contenido = await mostrarPagina("https://rickandmortyapi.com/api/character");
             page.innerHTML = contenido.outerHTML;
             break;

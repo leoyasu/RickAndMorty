@@ -18,6 +18,7 @@ async function getDataPage(urlBase, numeroPagina, cantidadItems) {
     }
     //url=pricipal/[arrayItems de pagina]
     var urlPage = `${urlBase}/[${arrNumeros}]`
+
     await fetch(urlPage).then(response => response.json()).then(json => arrayItems = json)
     return arrayItems
 }
