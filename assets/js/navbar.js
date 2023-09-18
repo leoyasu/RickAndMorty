@@ -147,6 +147,9 @@ async function displaySearchedData(searchedData) {
                 containerCards.appendChild(cardItem)
             });
             break;
+        case "episode":
+            displayAllEpisodes(searchedData);
+            break;
         default:
             break;
     }
